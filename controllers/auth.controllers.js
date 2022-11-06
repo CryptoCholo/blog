@@ -35,9 +35,9 @@ exports.login = (req, res, { err, user, info}) => {
 
             const body = { _id: user._id, username: user.username };
            
-            const token = jwt.sign({ user: body }, process.env.JWT_SECRET );
+            const token = jwt.sign({ user: body }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-            return res.status(200).json({ token });
+            return res.status(200).json({info, token});
         }
     );
 }

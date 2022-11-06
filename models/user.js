@@ -10,6 +10,7 @@ const UserSchema = new Schema({
     last_name: {type: String, required: true},
     username: {type: String, unique: true},
     password: {type: String, required: true},
+    posts:[{type: Schema.Types.ObjectId, ref: 'Post'}],
     created_at: Date
 })
 
