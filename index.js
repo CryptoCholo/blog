@@ -18,7 +18,7 @@ app.use('/', authRouter)
 
 
 app.get('/', (req, res) => {
-    res.json({message: "welcome"})
+   return res.json({message: "welcome"})
 })
 
 connect(process.env.mongodb);
