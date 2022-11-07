@@ -1,7 +1,10 @@
+/* eslint-disable no-undef */
 const mongoose = require('mongoose');
 
-function connect(url) {
-	mongoose.connect(url)
+function connect() {
+	mongoose.connect("mongodb+srv://test-project:test-project@cluster0.4qna20m.mongodb.net/?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true")
+
+	
 	const  db = mongoose.connection;
 
 	db.on("connected", () => {
