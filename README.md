@@ -213,7 +213,8 @@ Success
     
     "timestamp": "2022-11-07T12:47:14.230Z",
     
-    "__v": 0
+	}
+}
     
     
 
@@ -229,21 +230,27 @@ Authorization: Bearer {token}
 
 Query params:
 
-page (default: 1)
+page (default: 1),
 
-per_page (default: 20)
+per_page (default: 20),
 
-order_by (default: created_at)
+order_by (default: created_at),
 
-order (options: asc | desc, default: desc)
+order (options: asc | desc, default: desc),
 
-state
-created_at
+state,
+
+created_at,
+
 author, 
+
 title, 
+
 tags,
  
+ 
 Responses
+
 Success
 
 {
@@ -275,7 +282,100 @@ Success
 }
 
 
+Publish Post
 
+Route: /Posts/:id/publish
+
+Method: POST
+
+Header
+
+Authorization: Bearer {token}
+
+Responses
+
+Success
+
+
+{
+
+  "message": "Post with id 6368ff0eca061f8398a20f99 has been published",
+  
+  "post": {
+  
+    "_id": "6368ff0eca061f8398a20f99",
+    
+    "title": "mrcholo2022",
+    
+    "description": "12345678900",
+    
+    "author": "6367e3713d896ca37ae45438",
+    
+    "state": "published",
+    
+    "read_count": 0,
+    
+    "body": "chibueze",
+    
+    "timestamp": "2022-11-07T12:58:57.951Z",
+    
+  }
+  
+}
+
+Update Post
+
+Route: /Posts/:id
+
+Method: PUT
+
+Header
+
+Authorization: Bearer {token}
+
+body:
+{   
+    "title": "mrcholo2022",
+    
+    "description": "12345678900",
+    
+    "body": "chibueze",
+    
+  }
+  
+}
+
+Responses
+
+Success
+
+{
+
+
+  message: "Post with id 636902b0ca061f8398a20fa1 updated",
+  
+  
+  post: {
+  
+    title: "mrcholo2000",
+    
+    description: "0012345678900",
+    
+    author: "6367e3713d896ca37ae45438",
+    
+    state: "draft",
+    
+    read_count: 0,
+    
+    body: "chibuezeARINZE",
+    
+    _id: "636902b0ca061f8398a20fa1",
+    
+    timestamp: "2022-11-07T13:05:52.623Z",
+ 
+  }
+  
+}
 
 
 
