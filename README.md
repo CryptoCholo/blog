@@ -64,9 +64,9 @@ Body:
 
   password: "c0san0stra",
   
-  firstname: "john",
+  first_name: "john",
   
-  lastname: "gotti",
+  last_name: "gotti",
   
   username: 'teflon_don",
   
@@ -85,9 +85,9 @@ Success
 	
         "password": "c0san0stra",
 		
-  		"firstname": "john",
+  		"first_name": "john",
 		
-  		"lastname": "gotti",
+  		"last_name": "gotti",
 		
   		"username": 'teflon_don",
 		
@@ -121,3 +121,95 @@ Success
     token: 'sjlkGAGGDDhhhTREbjMJH987JvCCcCjHYrZA'
 	
 }
+
+
+Create Post
+Route: /posts
+Method: POST
+Header
+Authorization: Bearer {token}
+Body:
+{
+   title: God Abeg,
+   description: Adventures of AltSchool Africa,
+   body: My Eye Dey Red.
+}
+
+
+Responses
+Success
+
+{
+    state: 1,
+    total_price: 900,
+    created_at: Mon Oct 31 2022 08:35:00 GMT+0100,
+    items: [{ name: 'chicken pizza', price: 900, size: 'm', quantity: 1}]
+}
+
+Get Order
+Route: /orders/:id
+Method: GET
+Header
+Authorization: Bearer {token}
+Responses
+Success
+
+{
+  "post": {
+    "_id": "6368cda2b8d472d32c587662",
+    "title": "God gat us",
+    "description": "no be small thing at all",
+    "author": {
+      "_id": "6367e3713d896ca37ae45438",
+      "username": "mrcholo2022"
+    },
+    "state": "published",
+    "read_count": 5,
+    "body": "my eye dey pepper me still a lot to do",
+    "timestamp": "2022-11-07T12:47:14.230Z",
+    "__v": 0
+    
+    
+
+Get Orders
+Route: /orders
+Method: GET
+Header:
+Authorization: Bearer {token}
+Query params:
+page (default: 1)
+per_page (default: 20)
+order_by (default: created_at)
+order (options: asc | desc, default: desc)
+state
+created_at
+author, 
+title, 
+tags,
+ 
+Responses
+Success
+
+{
+  "status": true,
+  "posts": [
+    {
+      "_id": "6368cda2b8d472d32c587662",
+      "title": "God gat us",
+      "description": "no be small thing at all",
+      "author": "6367e3713d896ca37ae45438",
+      "state": "published",
+      "read_count": 4,
+      "body": "my eye dey pepper me still a lot to do",
+      "timestamp": "2022-11-07T09:46:46.148Z",
+      "__v": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
