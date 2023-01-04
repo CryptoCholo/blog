@@ -11,8 +11,8 @@ const UserSchema = new Schema({
     username: {type: String, unique: true},
     password: {type: String, required: true},
     posts:[{type: Schema.Types.ObjectId, ref: 'Post'}],
-    created_at: Date
-})
+    
+}, {timestamps: true})
 
 UserSchema.pre(
     'save',
@@ -20,7 +20,7 @@ UserSchema.pre(
         const user = this;
         const hash = await bcrypt.hash(user.password, 10);
         this.password = hash;
-        this.created_at = moment().toDate(),
+        // this.created_at = moment().toDate(),
         next();
     }
 )

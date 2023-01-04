@@ -12,16 +12,16 @@ const postSchema = new Schema({
     reading_time: Number,
     tags: String,
     body: {type: String, required: true},
-    timestamp: Date
-})
+    
+}, { timestamps: true })
 
-postSchema.pre(
-    'save',
-    async function (next) {
-        this.timestamp = moment().toDate(),
-        next();
-    }
-)
+// postSchema.pre(
+//     'save',
+//     async function (next) {
+//         this.timestamp = moment().toDate(),
+//         next();
+//     }
+// )
 
 const Post = mongoose.model('Posts', postSchema)
 

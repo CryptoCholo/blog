@@ -7,22 +7,25 @@ const authRouter = require('./routes/auth.routes');
 const postRouter = require('./routes/posts.routes');
 const app = express()
 
-const { connect } =  require('./db')
+const { connect } =  require('./db');
+
+connect();
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-app.use('/posts', postRouter )
-app.use('/', authRouter)
+
+app.use('/auth', authRouter)
+app.use('/posts', postRouter)
 
 
 app.get('/', (req, res) => {
-   return res.json({message: "welcome"})
+   return res.json({message: "Welcome to this blog"})
 })
 
-connect(process.env.mongodb);
 
-app.listen(process.env.port, () => {
+
+app.listen(process.env.PORT, () => {
     console.log(`app running`)
 })
