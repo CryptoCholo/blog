@@ -15,7 +15,7 @@ exports.signup = async (req, res) => {
 
     await user.save()
 
-    delete user.password
+    user.password = undefined;
 
     res.status(201).json({
         message: 'Signup successful',
@@ -36,7 +36,7 @@ exports.login = (req, res, { err, user, info}) => {
             const body = { _id: user._id, username: user.username };
            
             const token = jwt.sign({ user: body }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
+                
             return res.status(200).json({info, token});
         }
     );

@@ -7,11 +7,13 @@ const postSchema = new Schema({
     title: {type: String, required: true, unique: true},
     description: String,
     author:  { type: Schema.Types.ObjectId, required: true, ref: "User" },
-    state: {type: String,  requred: true, enum: ['draft', 'published'],  default: 'draft'},
+    body: {type: String, required: true},
+    comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
+    state: {type: String,  required: true, enum: ['draft', 'published'],  default: 'draft'},
     read_count: {type: Number, default: 0},
     reading_time: Number,
     tags: String,
-    body: {type: String, required: true},
+    
     
 }, { timestamps: true })
 

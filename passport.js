@@ -10,16 +10,24 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 passport.use(
     new JWTstrategy(
         {
-            secretOrKey: process.env.JWT_SECRET || 'something_secret',
+            secretOrKey: process.env.JWT_SECRET,
             jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken() 
         },
         async (token, done) => {
             try {
-                return done(null, token.user);
+            const id = token.user._id
+            const user = await UserModel.findById(id);
+           
+            if (!user) {
+                return done(null, false, { message: 'User not found' });
+            }
+           
+            return done(null, user, { message: 'Success' });
+                  
             } catch (error) {
                 done(error);
             }
-        }
+        }   
     )
 );
 
