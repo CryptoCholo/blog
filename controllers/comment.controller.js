@@ -1,6 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const isOwner = require('../validators/isOwner').isOwner;
+const isOwner = require('../utilities/isOwner').isOwner;
 
 const createComment = async (req, res) => {
     console.log(req.user)
@@ -9,7 +9,7 @@ const createComment = async (req, res) => {
     const { content } = req.body;
     try {
     const post = await Post.findById(postId);
-
+ 
     if (!post) return res.status(404).json({message: "post does not exist"})
 
     const comment = await Comment.create({

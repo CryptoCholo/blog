@@ -1,7 +1,7 @@
 const postModel = require('../models/post');
 const userModel = require('../models/user');
-const isOwner = require('../validators/isOwner').isOwner
-const { readingTime } = require('../validators/estReadingTime');
+const isOwner = require('../utilities/isOwner').isOwner
+const { readingTime } = require('../utilities/estReadingTime');
 
 exports.createPost = async (req, res) => {
     try {
@@ -29,7 +29,7 @@ exports.getPost = async (req, res) => {
     try{
         let post = await postModel.findById(req.params.postId)
         .populate({ path: 'author', select: 'username'})
-        .populate({ path: 'comments', select: 'content'})
+        .populate({ path: 'comments', select: 'content'}) 
     
         if (!post || post.length == 0){
         return res.status(404).json({message:'No post with id exists'})
