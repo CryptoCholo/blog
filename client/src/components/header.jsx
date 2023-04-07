@@ -3,12 +3,12 @@ import Nav from "./navItem"
 function Header() {
  
     return (
-      <div className="flex flex-col w-full h-1/3 sticky top-0 bg-slate-50">
-          <div className="w-full px-20 flex justify-between items-center h-2/3">
+      <div className="flex flex-col w-full h-max sticky top-0 bg-slate-50">
+          <div className="w-full px-20 py-5 flex justify-between items-center h-2/3">
                 <h2 className="text-3xl text-black font-extrabold">E Dey Happen</h2>
                 <div className="w-1/3 h-full flex justify-center gap-3 items-center">
-                    <input className="p-2 w-2/3 border border-black rounded-xl" placeholder="Search"></input>
-                    <button className="p-2 bg-yellow-100">
+                    <input className="p-2 w-2/3 border border-black rounded-xl"  style={{boxShadow: "-8px -6px 15px 0 #fff, 6px 8px 15px 0 rgb(0 0 0 / 15%)"}} placeholder="Search"></input>
+                    <button className="p-2 bg-indigo-600">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="25.6" height="25.6" viewBox="0 0 256 256" xmlSpace="preserve">
                             <defs>
                             </defs>
@@ -19,7 +19,7 @@ function Header() {
                     </button>
                 </div>
           </div>
-          <div className="w-screen  h-1/3 bg-yellow-100 border-t pt-2 border-black ">
+          <div className="w-screen  h-1/3 bg-indigo-600 border-t py-2 border-black ">
             <Nav/>
           </div>
       </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function NavItem({item}) {
     
   return (
-    <Link to='/' className="h-full w-1/5 p-4 text-start text-xl text-black font-bold">{item}</Link>
+    <Link to='/' className="h-full w-1/5 p-2 text-start text-xl text-black font-bold">{item}</Link>
   );
 }
 
