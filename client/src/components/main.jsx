@@ -5,7 +5,7 @@ import Trending from "./trending"
 function Main() {
  
     return (
-      <div className="flex w-full h-max px-20 pt-10 font-serif bg-slate-100">
+      <div className="flex w-full h-max px-15 pt-10 font-serif bg-slate-100">
         <div className=" flex flex-wrap h-max w-4/5 gap-y-10 gap-x-5">
           <Article title="The Ultimate Guide to Sustainable Living"/>
           <Article title="Why Every Business Should Embrace Diversity and Inclusion"/>
