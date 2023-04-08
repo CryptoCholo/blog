@@ -1,11 +1,13 @@
-import moment from "moment"
+import moment from "moment";
+import { Link } from 'react-router-dom';
 
 
 function Article({title}) {
  
     return (
       <div className="flex flex-col w-[48.2%] justify-start bg-slate-50 px-8 pt-5 pb-5 text-black border border-slate-100 rounded-lg" style={{boxShadow: "-8px -6px 15px 0 #fff, 6px 8px 15px 0 rgb(0 0 0 / 15%)"}}>
-           <h2 className="text-black  text-2xl font-medium">{title}</h2>
+           
+           <Link><h2  to='/article' className=" text-start text-2xl text-black font-bold">{title}</h2></Link>
           <div className="flex justify-start gap-5 mt-2 italic text-slate-600">
                 <p>@Mr Cholo</p>
                 <time>{ `${moment().format('MMMM DD, YYYY')}`}</time>
